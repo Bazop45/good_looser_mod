@@ -39,3 +39,19 @@ Rebind under *Controls → Good Looser*.
 ## Package
 
 `org.github.kasuroskie`
+
+## GitHub
+
+After `gh auth login`, create or update the remote:
+
+```bash
+gh repo create Kasuroskie/good_looser_mod --public --source=. --remote=origin --push
+```
+
+If the repository already exists:
+
+```bash
+git remote add origin https://github.com/Kasuroskie/good_looser_mod.git
+git branch -M main
+git push -u origin main
+```
