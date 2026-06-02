@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:item/generated",
+  "parent": "item/generated",
   "textures": {
-    "layer0": "good_looser:item/leggings"
+    "layer0": "good_looser:item/suisouleggings"
   }
 }

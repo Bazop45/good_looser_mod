@@ -1,6 +1,7 @@
 package org.github.kasuroskie.registry;
 
 import org.github.kasuroskie.GoodLooserMod;
+import org.github.kasuroskie.effect.CombatDisabledEffect;
 import org.github.kasuroskie.effect.PinnedEffect;
 
 import net.minecraft.core.registries.Registries;
@@ -14,6 +15,9 @@ public final class ModEffects {
 
     public static final DeferredHolder<MobEffect, MobEffect> PINNED =
             MOB_EFFECTS.register("pinned", PinnedEffect::new);
+
+    public static final DeferredHolder<MobEffect, MobEffect> COMBAT_DISABLED =
+            MOB_EFFECTS.register("combat_disabled", CombatDisabledEffect::new);
 
     private ModEffects() {}
 }

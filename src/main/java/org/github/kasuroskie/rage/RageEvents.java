@@ -41,8 +41,10 @@ public final class RageEvents {
 
     @SubscribeEvent
     public static void onEffectRemoved(MobEffectEvent.Remove event) {
-        if (event.getEffectInstance().getEffect().is(ModEffects.PINNED)
-                && event.getEntity() instanceof net.minecraft.world.entity.LivingEntity living) {
+        if (!(event.getEntity() instanceof net.minecraft.world.entity.LivingEntity living)) {
+            return;
+        }
+        if (event.getEffectInstance() != null && event.getEffectInstance().getEffect().is(ModEffects.PINNED)) {
             PinnedEffect.clearPinData(living);
         }
     }

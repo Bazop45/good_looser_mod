@@ -1,6 +1,9 @@
 package org.github.kasuroskie;
 
 import org.github.kasuroskie.network.ModNetworking;
+import org.github.kasuroskie.armor.ArmorSetEvents;
+import org.github.kasuroskie.combat.CombatEvents;
+import org.github.kasuroskie.effect.PinTickHandler;
 import org.github.kasuroskie.rage.RageEvents;
 import org.github.kasuroskie.registry.ModAttachments;
 import org.github.kasuroskie.registry.ModEffects;
@@ -39,6 +42,7 @@ public class GoodLooserMod {
                         output.accept(ModItems.CHESTPLATE.get());
                         output.accept(ModItems.LEGGINGS.get());
                         output.accept(ModItems.BOOTS.get());
+                        output.accept(ModItems.NAIL_HEAD.get());
                     })
                     .build());
 
@@ -53,5 +57,8 @@ public class GoodLooserMod {
         modEventBus.addListener(ModNetworking::registerPayloads);
 
         NeoForge.EVENT_BUS.register(RageEvents.class);
+        NeoForge.EVENT_BUS.register(CombatEvents.class);
+        NeoForge.EVENT_BUS.register(ArmorSetEvents.class);
+        NeoForge.EVENT_BUS.register(PinTickHandler.class);
     }
 }

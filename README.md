@@ -5,8 +5,12 @@ NeoForge mod for Minecraft **1.21.1** (NeoForge **21.1.229**).
 ## Features
 
 - **Armor set** (chestplate, leggings, boots): leather-level protection; leggings and boots are unbreakable; chestplate uses leather durability (80).
-- **Launch Nail** (default key **G**): fires a fast, gravity-free nail that does not deal damage. On hit, pins the target in place for 20 seconds.
-- **Rage bar**: fills when you take or deal damage. When full, the next nail is **empowered** (Weakness III + Resistance I for 20s) and rage resets.
+- **Set bonus**: with all three pieces equipped, lethal damage is prevented — you stay at 1 HP, are immobilized for 30 seconds, then restored to full health.
+- **Launch Nail** (default key **G**, 0.5s cooldown): fast, gravity-free projectile with no direct damage.
+  - On hit: target falls to the ground quickly, then is pinned at the landed position for 20 seconds.
+  - Each hit chips **5%** durability from one random damageable armor piece (unbreakable armor is skipped).
+  - **4+ nails within 5 seconds** disables attacking and shield use for 20 seconds.
+- **Rage bar** (fills to **60** when you take or deal damage): when full, the next nail is **empowered** (stronger pin/stack pressure only — no weakness/resistance) and rage resets.
 
 ## Build & run
 
@@ -19,16 +23,18 @@ Requires **Java 21**.
 
 Built JAR: `build/libs/good_looser-<version>.jar`
 
-## Asset folders (add your PNGs here)
+## Asset folders (add your PNGs / Blockbench exports here)
 
 | Path | Purpose |
 |------|---------|
-| `src/main/resources/assets/good_looser/textures/item/` | `chestplate.png`, `leggings.png`, `boots.png` |
-| `src/main/resources/assets/good_looser/textures/models/armor/` | `good_looser_layer_1.png` (chest/boots), `good_looser_layer_2.png` (leggings) |
-| `src/main/resources/assets/good_looser/textures/entity/projectile/` | `nail.png`, `nail_empowered.png` (optional) |
-| `src/main/resources/assets/good_looser/textures/gui/` | `rage_bar.png` (optional; bar is drawn in code by default) |
+| `assets/good_looser/textures/item/` | Inventory icons: `good_looser_chestplate.png`, `good_looser_leggings.png`, `good_looser_boots.png` (names must match model JSON `layer0` paths) |
+| `assets/good_looser/models/item/` | Already has `item/generated` stubs — replace with custom JSON if you use Blockbench item models |
+| `assets/good_looser/textures/models/armor/` | Worn armor: `good_looser_layer_1.png` (chest/boots), `good_looser_layer_2.png` (leggings) |
+| `assets/good_looser/textures/entity/projectile/` | `nail.png`, `nail_empowered.png` for thrown nail entity renderer |
+| `assets/good_looser/models/` | Optional Blockbench **block/entity** JSON for custom 3D nail or armor display (wire paths in renderer/model JSON yourself) |
+| `assets/good_looser/textures/gui/` | `rage_bar.png` (optional; bar is drawn in code by default) |
 
-Item models and equipment JSON are already wired; drop in textures and reload resources.
+**Your texture plan is correct:** item PNGs for inventory, armor layer PNGs for worn 3D armor, and a projectile texture (or full entity model JSON) for the nail.
 
 ## Controls
 
